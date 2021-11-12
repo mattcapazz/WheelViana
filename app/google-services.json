@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "618477766598",
+    "project_id": "wheelviana",
+    "storage_bucket": "wheelviana.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:618477766598:android:bc310766ad8e5b591994c7",
+        "android_client_info": {
+          "package_name": "com.mattcapazz.wheelviana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "618477766598-8369tdm2hdncrd4johthfoe59qubcbsf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBaotLe2aOTJ5-2KXJ14MZTc5CzHJX1rXw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "618477766598-8369tdm2hdncrd4johthfoe59qubcbsf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
