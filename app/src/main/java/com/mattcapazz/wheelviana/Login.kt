@@ -9,12 +9,9 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
 class Login : AppCompatActivity() {
   private lateinit var auth: FirebaseAuth
   val TAG = "Login"
-  val email = findViewById<EditText>(R.id.email).text.toString()
-  val password = findViewById<EditText>(R.id.password).text.toString()
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -28,12 +25,14 @@ class Login : AppCompatActivity() {
     // Check if user is signed in (non-null) and update UI accordingly.
     val currentUser = auth.currentUser
     if (currentUser != null) {
-      Log.d(TAG,"arroz");
+      Log.d(TAG,"arroz")
     }
   }
 
-
   fun createAccount(view: android.view.View) {
+    val email = findViewById<EditText>(R.id.email).text.toString()
+    val password = findViewById<EditText>(R.id.password).text.toString()
+
     auth.createUserWithEmailAndPassword(email, password)
       .addOnCompleteListener(this) { task ->
         if (task.isSuccessful) {
@@ -54,6 +53,9 @@ class Login : AppCompatActivity() {
   }
 
   fun loginAccount(view: android.view.View) {
+    val email = findViewById<EditText>(R.id.email).text.toString()
+    val password = findViewById<EditText>(R.id.password).text.toString()
+
     auth.signInWithEmailAndPassword(email, password)
       .addOnCompleteListener(this) { task ->
         if (task.isSuccessful) {
