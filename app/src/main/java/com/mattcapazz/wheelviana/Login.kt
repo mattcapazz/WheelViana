@@ -9,6 +9,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
+
 class Login : AppCompatActivity() {
   private lateinit var auth: FirebaseAuth
   val TAG = "Login"
@@ -17,7 +18,7 @@ class Login : AppCompatActivity() {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_login)
 
-    auth = Firebase.auth
+     auth = Firebase.auth
   }
 
   public override fun onStart() {
@@ -28,6 +29,10 @@ class Login : AppCompatActivity() {
       Log.d(TAG,"arroz")
     }
   }
+
+
+
+
 
   fun createAccount(view: android.view.View) {
     val email = findViewById<EditText>(R.id.email).text.toString()
@@ -56,22 +61,12 @@ class Login : AppCompatActivity() {
     val email = findViewById<EditText>(R.id.email).text.toString()
     val password = findViewById<EditText>(R.id.password).text.toString()
 
-    auth.signInWithEmailAndPassword(email, password)
-      .addOnCompleteListener(this) { task ->
-        if (task.isSuccessful) {
-          // Sign in success, update UI with the signed-in user's information
-          Log.d(TAG, "signInWithEmail:success")
-          val user = auth.currentUser
-          //updateUI(user)
-        } else {
-          // If sign in fails, display a message to the user.
-          Log.w(TAG, "signInWithEmail:failure", task.exception)
-          Toast.makeText(baseContext, "Authentication failed.",
-            Toast.LENGTH_SHORT).show()
-          // updateUI(null)
-        }
-      }
+
+     val text = "Hello toast!"
+    val duration = Toast.LENGTH_SHORT
+
+    val toast = Toast.makeText(applicationContext, text, duration)
+    toast.show()
   }
 
-
-}
+  }
