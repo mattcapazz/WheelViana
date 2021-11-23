@@ -13,7 +13,7 @@ class MainActivity : AppCompatActivity() {
   fun login(view: android.view.View) {
     startActivity(Intent(this, Login::class.java))
   }
-  
+
   fun maps(view: android.view.View) {
     startActivity(Intent(this, Maps::class.java))
   }

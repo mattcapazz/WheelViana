@@ -79,9 +79,8 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
         this,
         android.Manifest.permission.ACCESS_FINE_LOCATION
       )
-    ) {
-      Toast.makeText(this, "É necessario aceitar as permissões", Toast.LENGTH_SHORT).show()
-    } else {
+    ) Toast.makeText(this, "É necessario aceitar as permissões", Toast.LENGTH_SHORT).show()
+    else {
       ActivityCompat.requestPermissions(
         this,
         arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
