@@ -2,4 +2,12 @@
   <string name="app_name">WheelViana</string>
   <string name="open">Open></string>
   <string name="close">Close</string>
+  <string-array name="report">
+    <item>Transporte atrasado</item>
+    <item>Falta de transporte</item>
+    <item>Transporte atrasado</item>
+    <item>Falta de transporte</item>
+    <item>Transporte atrasado</item>
+    <item>Falta de transporte</item>
+  </string-array>
 </resources>

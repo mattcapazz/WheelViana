@@ -23,7 +23,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        //showMenu();
+
 
         val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
         val nav = findViewById<NavigationView>(R.id.navView)
