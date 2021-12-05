@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">WheelViana</string>
+    <string name="from">De:</string>
+    <string name="to">Para:</string>
+    <string name="returnTrip">Ida e Volta</string>
+    <string name="searchSchedules">Pesquisar Horários</string>
+    <string name="name">Nome</string>
+    <string name="lastName">Apelido</string>
+    <string name="register">Register</string>
+    <string name="signIn">Entrar</string>
+    <string name="linkPass">Associar Passe</string>
+    <string name="language">Engish</string>
+    <string name="darkMode">Modo Escuro</string>
+    <string name="frequent">Percursos Frequentes</string>
+    <string name="report">Reportar Problema</string>
+    <string name="logOut">SAIR</string>
+</resources>

@@ -16,7 +16,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:ems="10"
-        android:hint="Nome"
+        android:hint="@string/name"
         android:inputType="textPersonName" />
 
     <EditText
@@ -25,7 +25,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="2"
         android:ems="10"
-        android:hint="Apelido"
+        android:hint="@string/lastName"
         android:inputType="textPersonName" />
 
     <EditText
@@ -52,7 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="createAccount"
-        android:text="Registar" />
+        android:text="@string/register" />
 
     <Button
         android:id="@+id/loginAccount"
@@ -60,6 +60,6 @@
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:onClick="loginAccount"
-        android:text="Entrar" />
+        android:text="@string/signIn" />
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
