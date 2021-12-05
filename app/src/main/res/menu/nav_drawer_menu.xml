@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+  <item
+      android:id="@+id/miItem1"
+      android:title="Definições"/>
+
+  <item
+      android:id="@+id/miItem2"
+      android:title="Horarios"/>
+
+  <item
+      android:id="@+id/miItem3"
+      android:title="Reportar problemas"/>
+
+  <item
+      android:id="@+id/miItem4"
+      android:title="Login/Registo"/>
+
+</menu>
