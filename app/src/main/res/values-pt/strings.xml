@@ -15,4 +15,10 @@
     <string name="frequent">Percursos Frequentes</string>
     <string name="report">Reportar Problema</string>
     <string name="logOut">SAIR</string>
+    <string name="open">Abrir></string>
+    <string name="close">Fechar</string>
+    <string-array name="report">
+        <item>Transporte atrasado</item>
+        <item>Falta de transporte</item>
+    </string-array>
 </resources>

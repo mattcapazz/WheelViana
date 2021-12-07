@@ -14,5 +14,10 @@
   <string name="frequent">Favourite Routs</string>
   <string name="report">Report a Problem</string>
   <string name="logOut">LOG OUT</string>
-
+  <string name="open">Open></string>
+  <string name="close">Close</string>
+  <string-array name="report">
+    <item>Late Bus</item>
+    <item>Missing Bus</item>
+  </string-array>
 </resources>
