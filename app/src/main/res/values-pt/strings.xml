@@ -13,7 +13,8 @@
     <string name="language">Engish</string>
     <string name="darkMode">Modo Escuro</string>
     <string name="frequent">Percursos Frequentes</string>
-    <string name="report">Reportar Problema</string>
+    <string name="reportProb">Reportar Problema</string>
+    <string name="report">Reportar</string>
     <string name="logOut">SAIR</string>
     <string name="open">Abrir></string>
     <string name="close">Fechar</string>

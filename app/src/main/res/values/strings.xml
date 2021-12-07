@@ -12,7 +12,8 @@
   <string name="language">Português</string>
   <string name="darkMode">Dark Mode</string>
   <string name="frequent">Favourite Routs</string>
-  <string name="report">Report a Problem</string>
+  <string name="reportProb">Report a Problem</string>
+  <string name="report">Report</string>
   <string name="logOut">LOG OUT</string>
   <string name="open">Open></string>
   <string name="close">Close</string>
