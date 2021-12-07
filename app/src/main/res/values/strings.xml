@@ -14,7 +14,10 @@
   <string name="frequent">Favourite Routs</string>
   <string name="report">Report a Problem</string>
   <string name="logOut">LOG OUT</string>
-  <string name="open">open</string>
-  <string name="close">close</string>
-  <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyBl6q5XQcN3SAj61iuONw8LWY8JEKM7kp0</string>
+  <string name="open">Open></string>
+  <string name="close">Close</string>
+  <string-array name="report">
+    <item>Late Bus</item>
+    <item>Missing Bus</item>
+  </string-array>
 </resources>
