@@ -9,7 +9,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
-
 class Login : AppCompatActivity() {
   private lateinit var auth: FirebaseAuth
   val TAG = "Login"
@@ -29,7 +28,6 @@ class Login : AppCompatActivity() {
       Log.d(TAG, "arroz")
     }
   }
-
 
   fun createAccount(view: android.view.View) {
     val email = findViewById<EditText>(R.id.email).text.toString()

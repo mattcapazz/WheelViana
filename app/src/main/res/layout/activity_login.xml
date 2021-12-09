@@ -1,65 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".Login">
+  xmlns:tools="http://schemas.android.com/tools"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Login">
 
   <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <EditText
+      android:id="@+id/nome"
       android:layout_width="match_parent"
-      android:layout_height="match_parent"
-      android:orientation="vertical">
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:ems="10"
+      android:hint="@string/name"
+      android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/nome"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:ems="10"
-        android:hint="@string/name"
-        android:inputType="textPersonName" />
+      android:id="@+id/apelido"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:ems="10"
+      android:hint="@string/lastName"
+      android:inputType="textPersonName" />
 
     <EditText
-        android:id="@+id/apelido"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:ems="10"
-        android:hint="@string/lastName"
-        android:inputType="textPersonName" />
+      android:id="@+id/email"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:ems="10"
+      android:hint="Email"
+      android:inputType="textEmailAddress" />
 
     <EditText
-        android:id="@+id/email"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textEmailAddress" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="2"
-        android:ems="10"
-        android:hint="Password"
-        android:inputType="textPassword" />
+      android:id="@+id/password"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="2"
+      android:ems="10"
+      android:hint="Password"
+      android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/createAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="createAccount"
-        android:text="@string/register" />
+      android:id="@+id/createAccount"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:onClick="createAccount"
+      android:text="@string/register" />
 
     <Button
-        android:id="@+id/loginAccount"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:onClick="loginAccount"
-        android:text="@string/signIn" />
+      android:id="@+id/loginAccount"
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content"
+      android:layout_weight="1"
+      android:onClick="loginAccount"
+      android:text="@string/signIn" />
   </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
