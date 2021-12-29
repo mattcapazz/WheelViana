@@ -1,24 +1,26 @@
 <resources>
-  <string name="app_name">WheelViana</string>
-  <string name="from">From:</string>
-  <string name="to">To:</string>
-  <string name="returnTrip">Return Trip</string>
-  <string name="searchSchedules">Search Schedules</string>
-  <string name="name">Name</string>
-  <string name="lastName">Last Name</string>
-  <string name="register">Register</string>
-  <string name="signIn">Sign In</string>
-  <string name="linkPass">Link Pass</string>
-  <string name="language">Português</string>
-  <string name="darkMode">Dark Mode</string>
-  <string name="frequent">Favourite Routs</string>
-  <string name="reportProb">Report a Problem</string>
-  <string name="report">Report</string>
-  <string name="logOut">LOG OUT</string>
-  <string name="open">Open></string>
-  <string name="close">Close</string>
-  <string-array name="report">
-    <item>Late Bus</item>
-    <item>Missing Bus</item>
-  </string-array>
+    <string name="app_name">WheelViana</string>
+    <string name="from">From:</string>
+    <string name="to">To:</string>
+    <string name="searchSchedules">Search Schedules</string>
+    <string name="name">Name</string>
+    <string name="lastName">Last Name</string>
+    <string name="register">Register</string>
+    <string name="signIn">Sign In</string>
+    <string name="linkPass">Link Pass</string>
+    <string name="language">Português</string>
+    <string name="darkMode">Dark Mode</string>
+    <string name="frequent">Favourite Routs</string>
+    <string name="reportProb">Report a Problem</string>
+    <string name="report">Report</string>
+    <string name="logOut">LOG OUT</string>
+    <string name="open">Open></string>
+    <string name="close">Close</string>
+    <string-array name="report">
+        <item>Late Bus</item>
+        <item>Missing Bus</item>
+    </string-array>
+    <string name="returnTrip">Return Trip</string>
+    <string name="saveroute">Save Route</string>
+    <string name="save">Save</string>
 </resources>

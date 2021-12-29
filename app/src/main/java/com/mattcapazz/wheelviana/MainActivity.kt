@@ -2,22 +2,17 @@ package com.mattcapazz.wheelviana
 
 import android.annotation.SuppressLint
 import android.app.DatePickerDialog
+import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.view.MenuItem
-import android.view.MotionEvent
 import android.view.View
-import android.view.View.OnTouchListener
-import android.widget.EditText
-import android.widget.Toast
+import android.widget.*
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import java.util.*
-import android.widget.TextView
-
-
 
 
 class MainActivity : AppCompatActivity() {
@@ -27,6 +22,8 @@ class MainActivity : AppCompatActivity() {
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_main)
+
+    loadData()
 
 
 
@@ -43,39 +40,70 @@ class MainActivity : AppCompatActivity() {
 
     nav.setNavigationItemSelectedListener {
       when (it.itemId) {
-        R.id.miItem1 -> {
-          val intent = Intent(this, Maps::class.java).apply {
+        R.id.gMap -> {
+          val gmapAct = Intent(this, Maps::class.java).apply {
           }
-          startActivity(intent)
+          startActivity(gmapAct)
         }
 
-        R.id.miItem2 -> Toast.makeText(
+        R.id.schedule -> Toast.makeText(
           applicationContext,
           "Clicked Item 2",
           Toast.LENGTH_SHORT
         ).show()
 
-        R.id.miItem3 -> Toast.makeText(
+        R.id.issues -> Toast.makeText(
           applicationContext,
           "Clicked Item 3",
           Toast.LENGTH_SHORT
         ).show()
+
+        R.id.login -> {
+          val loginAct = Intent(this, Register::class.java).apply {  }
+          startActivity(loginAct)
+        }
+
       }
       true
     }
 
-    val eT: EditText = findViewById(R.id.editText)
-    eT.setOnTouchListener(OnTouchListener { _, event ->
-      // Left -> 0, Top -> 1, Right -> 2, Bottom -> 3
-      if (event.action == MotionEvent.ACTION_UP) {
-        if (event.rawX >= eT.right - eT.compoundDrawables[2].bounds.width()
-        ) {
-          Toast.makeText(this, "Teste", Toast.LENGTH_LONG).show()
-          return@OnTouchListener true
-        }
-      }
-      false
-    })
+
+  }
+
+  fun saveData() {
+    val textoDe = "De:" + "  " + findViewById<EditText>(R.id.editTde).text.toString()
+
+    val textoPara = "Para:" + "  " + findViewById<EditText>(R.id.editTpara).text.toString()
+
+
+    val deTV = findViewById<TextView>(R.id.deTv) as TextView
+    deTV.setText(textoDe)
+    val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
+    dePARA.setText(textoPara)
+
+    val sharedPref = getSharedPreferences("usualRoute", Context.MODE_PRIVATE)
+    val editor = sharedPref.edit()
+    editor.apply{
+      putString("STRING_KEY", textoDe)
+      putString("STRING_KEY2", textoPara)
+      putBoolean("BOOLEAN_KEY", findViewById<Switch>(R.id.switch1).isChecked)
+    }.apply()
+
+    Toast.makeText(this,"Data Saved", Toast.LENGTH_SHORT).show()
+  }
+
+  fun loadData() {
+    val sharedPref = getSharedPreferences("usualRoute", Context.MODE_PRIVATE)
+    val savedString = sharedPref.getString("STRING_KEY", null)
+    val savedString2 = sharedPref.getString("STRING_KEY2", null)
+    val savedSwitch = sharedPref.getBoolean("BOOLEAN_KEY", false)
+
+
+    val deTV = findViewById<TextView>(R.id.deTv) as TextView
+    deTV.setText(savedString)
+    val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
+    dePARA.setText(savedString2)
+    findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -105,6 +133,10 @@ class MainActivity : AppCompatActivity() {
       dateTv.setText(date)
     },year,month,day)
     dpd.show()
+  }
+
+  fun saveBtn(view: android.view.View) {
+    saveData()
   }
 
 

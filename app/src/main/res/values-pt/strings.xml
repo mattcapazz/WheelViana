@@ -22,4 +22,6 @@
         <item>Transporte atrasado</item>
         <item>Falta de transporte</item>
     </string-array>
+    <string name="save">Guardar</string>
+    <string name="saveroute">Guardar Rota</string>
 </resources>

@@ -1,15 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
   <item
-    android:id="@+id/miItem1"
-    android:title="Definições" />
+    android:id="@+id/gMap"
+    android:title="Mapa" />
   <item
-    android:id="@+id/miItem2"
+    android:id="@+id/schedule"
     android:title="Horarios" />
   <item
-    android:id="@+id/miItem3"
+    android:id="@+id/issues"
     android:title="Reportar problemas" />
   <item
-    android:id="@+id/miItem4"
+    android:id="@+id/login"
     android:title="Login/Registo" />
 </menu>
