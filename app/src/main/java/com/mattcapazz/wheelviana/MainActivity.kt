@@ -26,8 +26,6 @@ class MainActivity : AppCompatActivity() {
     loadData()
 
 
-
-
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
 
@@ -52,11 +50,10 @@ class MainActivity : AppCompatActivity() {
           Toast.LENGTH_SHORT
         ).show()
 
-        R.id.issues -> Toast.makeText(
-          applicationContext,
-          "Clicked Item 3",
-          Toast.LENGTH_SHORT
-        ).show()
+        R.id.issues -> {
+          val loginAct = Intent(this, ActivityReport::class.java).apply {  }
+          startActivity(loginAct)
+        }
 
         R.id.login -> {
           val loginAct = Intent(this, Register::class.java).apply {  }
@@ -138,6 +135,7 @@ class MainActivity : AppCompatActivity() {
   fun saveBtn(view: android.view.View) {
     saveData()
   }
+
 
 
 }
