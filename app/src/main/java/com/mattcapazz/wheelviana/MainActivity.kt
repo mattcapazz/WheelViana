@@ -46,11 +46,10 @@ class MainActivity : AppCompatActivity() {
           startActivity(gmapAct)
         }
 
-        R.id.schedule -> Toast.makeText(
-          applicationContext,
-          "Clicked Item 2",
-          Toast.LENGTH_SHORT
-        ).show()
+        R.id.schedule -> {
+          val schedule = Intent(this, Schedule::class.java).apply {  }
+          startActivity(schedule)
+        }
 
         R.id.issues -> Toast.makeText(
           applicationContext,
