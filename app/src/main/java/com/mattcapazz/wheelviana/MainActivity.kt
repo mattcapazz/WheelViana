@@ -5,6 +5,7 @@ import android.app.DatePickerDialog
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -69,6 +70,8 @@ class MainActivity : AppCompatActivity() {
 
   }
 
+
+
   fun saveData() {
     val textoDe = "De:" + "  " + findViewById<EditText>(R.id.editTde).text.toString()
 
@@ -103,6 +106,8 @@ class MainActivity : AppCompatActivity() {
     val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
     dePARA.setText(savedString2)
     findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
+
+
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -136,6 +141,44 @@ class MainActivity : AppCompatActivity() {
 
   fun saveBtn(view: android.view.View) {
     saveData()
+  }
+
+
+
+
+
+  fun SearchSch(view: android.view.View) {
+    val edtt = findViewById<EditText>(R.id.editTde).text.toString()
+
+    if(edtt.isNullOrBlank() == false){
+      val textoDe = findViewById<EditText>(R.id.editTde).text.toString()
+      val textoPara = findViewById<EditText>(R.id.editTpara).text.toString()
+
+      val intent = Intent(this@MainActivity,Schedule::class.java)
+      intent.putExtra("De",textoDe)
+      intent.putExtra("Para",textoPara)
+      startActivity(intent)
+      Log.e("Extra2", "estou no edittext")
+
+    }else {
+
+
+      val deTV = findViewById<TextView>(R.id.deTv).text.toString()
+      val dePARA = findViewById<TextView>(R.id.paraTv).text.toString()
+
+
+      val intent = Intent(this@MainActivity,Schedule::class.java)
+      intent.putExtra("De",deTV)
+      intent.putExtra("Para",dePARA)
+      startActivity(intent)
+      Log.e("Extra2", "estou no textview")
+
+
+    }
+
+
+
+
   }
 
 

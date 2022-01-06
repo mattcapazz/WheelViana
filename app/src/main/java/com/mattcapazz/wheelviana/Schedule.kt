@@ -29,8 +29,13 @@ class Schedule : AppCompatActivity() {
         recyclerView.adapter = lineAdapter
 
         EventChangeListener()
+        val DeExtra=intent.getStringExtra("De")
+        val ParaExtra=intent.getStringExtra("Para")
+        Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
+
 
     }
+
 
     private fun EventChangeListener() {
 
@@ -41,6 +46,7 @@ class Schedule : AppCompatActivity() {
                 error: FirebaseFirestoreException?
             ) {
                 if (error != null){
+
                     Log.e("Firestore Error", error.message.toString())
                     return
 
