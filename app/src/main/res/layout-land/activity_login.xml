@@ -16,10 +16,10 @@ tools:context=".Login">
 
   <EditText
       android:id="@+id/email"
-      android:layout_width="305dp"
-      android:layout_height="50dp"
-      android:layout_marginTop="200dp"
-      android:layout_marginBottom="10dp"
+      android:layout_width="468dp"
+      android:layout_height="64dp"
+      android:layout_marginTop="100dp"
+      android:layout_marginBottom="20dp"
       android:hint="Email"
       android:inputType="textEmailAddress"
       app:layout_constraintBottom_toTopOf="@+id/password"
@@ -30,7 +30,7 @@ tools:context=".Login">
 
   <EditText
       android:id="@+id/password"
-      android:layout_width="298dp"
+      android:layout_width="468dp"
       android:layout_height="50dp"
       android:layout_marginTop="30dp"
       android:layout_weight="2"
