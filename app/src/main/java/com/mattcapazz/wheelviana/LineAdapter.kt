@@ -9,6 +9,8 @@ import androidx.recyclerview.widget.RecyclerView
 class LineAdapter(private val dataSet: ArrayList<Place>) :
     RecyclerView.Adapter<LineAdapter.ViewHolder>() {
 
+
+
     /**
      * Provide a reference to the type of views that you are using
      * (custom ViewHolder).

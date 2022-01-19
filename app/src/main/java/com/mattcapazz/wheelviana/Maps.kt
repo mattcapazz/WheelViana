@@ -16,6 +16,13 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.mattcapazz.wheelviana.api.EndPoints2
+import com.mattcapazz.wheelviana.api.ServiceBuilder2
+import com.mattcapazz.wheelviana.api.User2
+import com.mattcapazz.wheelviana.databinding.ActivityMapsBinding
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 import java.util.*
 
@@ -25,6 +32,8 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
     GoogleMap.OnMyLocationButtonClickListener, GoogleMap.OnMyLocationClickListener {
 
     private lateinit var map: GoogleMap
+    private lateinit var binding: ActivityMapsBinding
+    private lateinit var users: List<User2>
 
     companion object {
         const val REQUEST_CODE_LOCATION = 0
@@ -53,7 +62,31 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
             supportFragmentManager.findFragmentById(R.id.map) as SupportMapFragment
             mapFragment.getMapAsync(this)
 
+        val request = ServiceBuilder2.buildService(EndPoints2::class.java)
+        val call = request.getMarkers()
+        var position: LatLng
+
+        call.enqueue(object : Callback<List<User2>> {
+            override fun onResponse(call: Call<List<User2>>, response: Response<List<User2>>) {
+                if (response.isSuccessful){
+                    users = response.body()!!
+                    for (user in users) {
+                        position = LatLng(user.marker.lat.toString().toDouble(),
+                            user.marker.long.toString().toDouble())
+                        map.addMarker(MarkerOptions().position(position).title(user.name ))
+                    }
+                }
+            }
+
+            override fun onFailure(call: Call<List<User2>>, t: Throwable) {
+                Toast.makeText(this@Maps, "${t.message}", Toast.LENGTH_SHORT).show()
+            }
+        })
+
     }
+
+
+
 
 
     private fun createMarker() {

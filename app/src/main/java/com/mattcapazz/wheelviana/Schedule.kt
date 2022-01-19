@@ -13,6 +13,8 @@ class Schedule : AppCompatActivity() {
     private lateinit var lineAdapter: LineAdapter
     private lateinit var db : FirebaseFirestore
 
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_schedule)
@@ -40,7 +42,7 @@ class Schedule : AppCompatActivity() {
     private fun EventChangeListener() {
 
        db = FirebaseFirestore.getInstance()
-        db.collection("horarios").addSnapshotListener(object : EventListener<QuerySnapshot>{
+        db.collection("horarios").document("ODhJfrznigoeyfQQA0Es").collection("paragem").addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -52,6 +54,7 @@ class Schedule : AppCompatActivity() {
 
                 }
                 for(dc : DocumentChange in value?.documentChanges!!){
+
                     if (dc.type == DocumentChange.Type.ADDED){
                         myList.add(dc.document.toObject(Place::class.java))
                     }

@@ -162,6 +162,8 @@ class MainActivity : AppCompatActivity() {
       intent.putExtra("Para",dePARA)
       startActivity(intent)
       Log.e("Extra2", "estou no textview")
+
+
     }
   }
 }
