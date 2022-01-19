@@ -167,15 +167,16 @@
 
 
     <Button
-      android:id="@+id/SearchSched"
-      android:layout_width="341dp"
-      android:layout_height="48dp"
-      android:layout_centerInParent="true"
-      android:layout_marginTop="50dp"
-      android:layout_below="@id/LinearCalDateSwitch"
-      android:layout_marginBottom="4dp"
-      android:background="@drawable/rounded_edittext"
-      android:text="@string/searchSchedules"/>
+        android:id="@+id/SearchSched"
+        android:layout_width="341dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/LinearCalDateSwitch"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:onClick="SearchSch"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_edittext"
+        android:text="@string/searchSchedules" />
 
     <ImageView
         android:id="@+id/imageView"
