@@ -43,7 +43,6 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
     override fun onMapReady(googleMap: GoogleMap) {
 
         map = googleMap
-        createMarker()
         map.setOnMyLocationButtonClickListener(this)
         map.setOnMyLocationClickListener(this)
         enableLocation()
@@ -89,18 +88,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
 
 
 
-    private fun createMarker() {
-        // Coordenadas do marker
-        val coordinates = LatLng(41.695068, -8.833294)
 
-        val marker: MarkerOptions = MarkerOptions().position(coordinates).title("Interface")
-        map.addMarker(marker)
-        map.animateCamera(
-            CameraUpdateFactory.newLatLngZoom(coordinates, 18f),
-            4000,
-            null
-        )
-    }
 
     private fun isLocationPermissionGranted() = ContextCompat.checkSelfPermission(
         this,
