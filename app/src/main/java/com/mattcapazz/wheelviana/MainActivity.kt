@@ -27,8 +27,6 @@ class MainActivity : AppCompatActivity() {
     loadData()
 
 
-
-
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
 
@@ -52,11 +50,10 @@ class MainActivity : AppCompatActivity() {
           startActivity(schedule)
         }
 
-        R.id.issues -> Toast.makeText(
-          applicationContext,
-          "Clicked Item 3",
-          Toast.LENGTH_SHORT
-        ).show()
+        R.id.issues -> {
+          val loginAct = Intent(this, ActivityReport::class.java).apply {  }
+          startActivity(loginAct)
+        }
 
         R.id.login -> {
           val loginAct = Intent(this, Register::class.java).apply {  }
@@ -143,10 +140,6 @@ class MainActivity : AppCompatActivity() {
     saveData()
   }
 
-
-
-
-
   fun SearchSch(view: android.view.View) {
     val edtt = findViewById<EditText>(R.id.editTde).text.toString()
 
@@ -160,26 +153,15 @@ class MainActivity : AppCompatActivity() {
       startActivity(intent)
       Log.e("Extra2", "estou no edittext")
 
-    }else {
-
-
+    } else {
       val deTV = findViewById<TextView>(R.id.deTv).text.toString()
       val dePARA = findViewById<TextView>(R.id.paraTv).text.toString()
-
 
       val intent = Intent(this@MainActivity,Schedule::class.java)
       intent.putExtra("De",deTV)
       intent.putExtra("Para",dePARA)
       startActivity(intent)
       Log.e("Extra2", "estou no textview")
-
-
     }
-
-
-
-
   }
-
-
 }
