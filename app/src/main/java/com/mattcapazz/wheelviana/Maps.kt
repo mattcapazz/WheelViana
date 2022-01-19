@@ -19,7 +19,6 @@ import com.google.firebase.ktx.Firebase
 
 import java.util.*
 
-
 //source:https://cursokotlin.com/capitulo-28-google-maps-en-android-con-kotlin/
 
 class Maps : AppCompatActivity(), OnMapReadyCallback,
@@ -72,7 +71,7 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
 
     private fun isLocationPermissionGranted() = ContextCompat.checkSelfPermission(
         this,
-        android.Manifest.permission.ACCESS_FINE_LOCATION
+        Manifest.permission.ACCESS_FINE_LOCATION
     ) == PackageManager.PERMISSION_GRANTED
 
     private fun enableLocation() {
@@ -93,13 +92,13 @@ class Maps : AppCompatActivity(), OnMapReadyCallback,
     private fun requestLocationPermission() {
         if (ActivityCompat.shouldShowRequestPermissionRationale(
                 this,
-                android.Manifest.permission.ACCESS_FINE_LOCATION
+                Manifest.permission.ACCESS_FINE_LOCATION
             )
         ) Toast.makeText(this, "É necessario aceitar as permissões", Toast.LENGTH_SHORT).show()
         else {
             ActivityCompat.requestPermissions(
                 this,
-                arrayOf(android.Manifest.permission.ACCESS_FINE_LOCATION),
+                arrayOf(Manifest.permission.ACCESS_FINE_LOCATION),
                 REQUEST_CODE_LOCATION
             )
         }
