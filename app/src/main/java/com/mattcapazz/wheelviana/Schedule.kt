@@ -38,7 +38,7 @@ class Schedule : AppCompatActivity() {
     Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
 
     db = FirebaseFirestore.getInstance()
-    db.collection("horarios").addSnapshotListener(object : EventListener<QuerySnapshot> {
+    db.collection("horarios").orderBy("autocarro_id", Query.Direction.DESCENDING).addSnapshotListener(object : EventListener<QuerySnapshot> {
       override fun onEvent(
         value: QuerySnapshot?,
         error: FirebaseFirestoreException?
