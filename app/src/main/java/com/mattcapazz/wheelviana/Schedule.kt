@@ -33,21 +33,22 @@ class Schedule : AppCompatActivity() {
         EventChangeListener()
 
 
+
+
         val DeExtra=intent.getStringExtra("De")
         val ParaExtra=intent.getStringExtra("Para")
         Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
 
 
     }
-    val autocarroRef = db.collection("autocarros")
 
-    val query = autocarroRef.whereEqualTo("autocarro_id", "DeExtra")
 
 
     private fun EventChangeListener() {
 
+
        db = FirebaseFirestore.getInstance()
-        db.collection("autocarros").addSnapshotListener(object : EventListener<QuerySnapshot>{
+        db.collection("autocarros").whereEqualTo("autocarro_id", "DeExtra").addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -61,6 +62,7 @@ class Schedule : AppCompatActivity() {
                 for(dc : DocumentChange in value?.documentChanges!!){
 
                     if (dc.type == DocumentChange.Type.ADDED){
+
                         myList.add(dc.document.toObject(Place::class.java))
                     }
                 }

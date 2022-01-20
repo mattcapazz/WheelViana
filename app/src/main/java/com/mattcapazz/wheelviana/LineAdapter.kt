@@ -40,7 +40,7 @@ class LineAdapter(private val dataSet: ArrayList<Place>) :
         contents of the view with that element */
         viewHolder.vhAutocarro.text =  dataSet[position].autocarro_id
         viewHolder.vhParagem.text = dataSet[position].paragem
-        viewHolder.vhHora.text = dataSet[position].horas
+        viewHolder.vhHora.text = dataSet[position].hora
 
     }
 

@@ -38,7 +38,12 @@ class MainActivity : AppCompatActivity() {
 
 
     val currentUser = auth.currentUser
+    if (currentUser != null) {
 
+      val emailTV = findViewById<TextView>(R.id.emailWelcome) as TextView
+      emailTV.setText(currentUser.email)
+      Log.d(TAG, "arroz logado da main " + currentUser.email)
+    }
 
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
@@ -87,6 +92,8 @@ class MainActivity : AppCompatActivity() {
             val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = true
             FirebaseAuth.getInstance().signOut();
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
           } else {
             val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = false
