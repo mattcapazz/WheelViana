@@ -186,7 +186,7 @@
         android:layout_below="@id/LinearCalDateSwitch"
         android:layout_centerInParent="true"
         android:layout_marginTop="50dp"
-        android:onClick="SearchSch"
+        android:onClick="searchSch"
         android:layout_marginBottom="4dp"
         android:background="@drawable/rounded_edittext"
         android:text="@string/searchSchedules" />

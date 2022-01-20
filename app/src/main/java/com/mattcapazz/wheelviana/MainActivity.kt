@@ -34,7 +34,7 @@ class MainActivity : AppCompatActivity() {
 
     val currentUser = auth.currentUser
     if (currentUser != null) {
-      val emailTV = findViewById<TextView>(R.id.emailWelcome) as TextView
+      val emailTV = findViewById<TextView>(R.id.emailWelcome)
       emailTV.text = "Bem vindo, " + currentUser.email
       Log.d(tag, "arroz logado da main " + currentUser.email)
     }
@@ -89,7 +89,7 @@ class MainActivity : AppCompatActivity() {
     }
   }
 
-  fun saveData() {
+  private fun saveData() {
     val textoDe = "De:" + "  " + findViewById<EditText>(R.id.editTde).text.toString()
     val textoPara = "Para:" + "  " + findViewById<EditText>(R.id.editTpara).text.toString()
 
@@ -110,17 +110,16 @@ class MainActivity : AppCompatActivity() {
     Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show()
   }
 
-  fun loadData() {
+  private fun loadData() {
     val sharedPref = getSharedPreferences("usualRoute", Context.MODE_PRIVATE)
     val savedString = sharedPref.getString("STRING_KEY", null)
     val savedString2 = sharedPref.getString("STRING_KEY2", null)
-    val savedSwitch = sharedPref.getBoolean("BOOLEAN_KEY", false)
+    sharedPref.getBoolean("BOOLEAN_KEY", false)
 
-    val deTV = findViewById<TextView>(R.id.deTv) as TextView
+    val deTV = findViewById<TextView>(R.id.deTv)
     deTV.text = savedString
-    val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
+    val dePARA = findViewById<TextView>(R.id.paraTv)
     dePARA.text = savedString2
-    //findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -130,22 +129,14 @@ class MainActivity : AppCompatActivity() {
     return super.onOptionsItemSelected(item)
   }
 
-  fun login(view: android.view.View) {
-    startActivity(Intent(this, Login::class.java))
-  }
-
-  fun maps(view: android.view.View) {
-    startActivity(Intent(this, Maps::class.java))
-  }
-
-  fun calendar(view: android.view.View) {
+  fun calendar(view: View) {
     val dateTv = findViewById<View>(R.id.dateTv) as TextView
     val c = Calendar.getInstance()
     val year = c.get(Calendar.YEAR)
     val month = c.get(Calendar.MONTH)
     val day = c.get(Calendar.DAY_OF_MONTH)
     var dpd =
-      DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+      DatePickerDialog(this, { _, mYear, mMonth, mDay ->
         val mmMonth = mMonth + 1
         val date = "$mDay/$mmMonth/$mYear"
         dateTv.text = date
@@ -153,14 +144,14 @@ class MainActivity : AppCompatActivity() {
     dpd.show()
   }
 
-  fun saveBtn(view: android.view.View) {
+  fun saveBtn(view: View) {
     saveData()
   }
 
-  fun SearchSch(view: android.view.View) {
+  fun searchSch(view: View) {
     val edtt = findViewById<EditText>(R.id.editTde).text.toString()
 
-    if (!edtt.isNullOrBlank()) {
+    if (edtt.isNotBlank()) {
       val textoDe = findViewById<EditText>(R.id.editTde).text.toString()
       val textoPara = findViewById<EditText>(R.id.editTpara).text.toString()
 

@@ -51,10 +51,7 @@ class ActivityReport : AppCompatActivity() {
 
       }
       true
-
     }
-
-
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {

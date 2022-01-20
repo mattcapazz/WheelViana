@@ -15,9 +15,10 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 
 class Login : AppCompatActivity() {
+  private val TAG = "Login"
+
   private lateinit var auth: FirebaseAuth
-  lateinit var toggle: ActionBarDrawerToggle
-  val TAG = "Login"
+  private lateinit var toggle: ActionBarDrawerToggle
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -76,7 +77,7 @@ class Login : AppCompatActivity() {
     // Check if user is signed in (non-null) and update UI accordingly.
     val currentUser = auth.currentUser
     if (currentUser != null) {
-      Log.d(TAG, "arroz logado" + currentUser.email)
+      Log.d(TAG, "Arroz logado" + currentUser.email)
     }
   }
 
@@ -89,8 +90,6 @@ class Login : AppCompatActivity() {
         if (task.isSuccessful) {
           // Sign in success, update UI with the signed-in user's information
           Log.d("TAG", "signInWithEmail:success")
-          val user = auth.currentUser
-          //updateUI(user)
           val intent = Intent(this, MainActivity::class.java)
           startActivity(intent)
         } else {
