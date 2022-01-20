@@ -47,6 +47,10 @@ class MainActivity : AppCompatActivity() {
       navMenu.findItem(R.id.logout).isVisible = false
     }
 
+    if (currentUser != null) {
+      val navMenu: Menu = nav.menu
+      navMenu.findItem(R.id.login).isVisible = false
+    }
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
     toggle.syncState()
@@ -69,8 +73,18 @@ class MainActivity : AppCompatActivity() {
           startActivity(loginAct)
         }
         R.id.login -> {
-          val loginAct = Intent(this, Register::class.java).apply { }
-          startActivity(loginAct)
+          if (currentUser != null) {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.login).isVisible = false
+
+          } else {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = true
+            val loginAct = Intent(this, Register::class.java).apply { }
+            startActivity(loginAct)
+          }
+
+
         }
         R.id.logout -> {
           if (currentUser != null) {

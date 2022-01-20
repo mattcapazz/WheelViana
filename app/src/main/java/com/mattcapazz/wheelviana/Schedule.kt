@@ -12,6 +12,7 @@ class Schedule : AppCompatActivity() {
   private lateinit var lineAdapter: LineAdapter
   private lateinit var db: FirebaseFirestore
 
+
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_schedule)
@@ -28,14 +29,15 @@ class Schedule : AppCompatActivity() {
     val autocarroRef = db.collection("autocarros")
     val query = autocarroRef.whereEqualTo("autocarro_id", "DeExtra").get()
 
-    val DeExtra = intent.getStringExtra("De")
-    val ParaExtra = intent.getStringExtra("Para")
-    Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
+
   }
 
   private fun eventChangeListener() {
+    val DeExtra = intent.getStringExtra("De")
+    val ParaExtra = intent.getStringExtra("Para")
+    Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
     db = FirebaseFirestore.getInstance()
-    db.collection("autocarros").addSnapshotListener(object : EventListener<QuerySnapshot> {
+    db.collection("horarios").addSnapshotListener(object : EventListener<QuerySnapshot> {
       override fun onEvent(
         value: QuerySnapshot?,
         error: FirebaseFirestoreException?
@@ -46,7 +48,11 @@ class Schedule : AppCompatActivity() {
         }
         for (dc: DocumentChange in value?.documentChanges!!) {
           if (dc.type == DocumentChange.Type.ADDED) {
-            myList.add(dc.document.toObject(Place::class.java))
+            //Log.d("MARIO", dc.document.data["horas"].toString())
+            if(dc.document.data["paragem"].toString().equals(DeExtra))
+            myList.add(Place(dc.document.data["autocarro_id"].toString(), dc.document.data["paragem"].toString(),
+              dc.document.data["horas"] as List<String>
+            ))
           }
         }
         lineAdapter.notifyDataSetChanged()

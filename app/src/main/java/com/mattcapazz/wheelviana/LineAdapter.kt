@@ -1,5 +1,6 @@
 package com.mattcapazz.wheelviana
 
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -33,7 +34,7 @@ class LineAdapter(private val dataSet: ArrayList<Place>) :
     contents of the view with that element */
     viewHolder.vhAutocarro.text = dataSet[position].autocarro_id
     viewHolder.vhParagem.text = dataSet[position].paragem
-    viewHolder.vhHora.text = dataSet[position].hora
+    viewHolder.vhHora.text = dataSet[position].horas.toString()
   }
 
   // Return the size of your dataset (invoked by the layout manager)
