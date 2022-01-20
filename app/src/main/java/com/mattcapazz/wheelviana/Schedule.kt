@@ -31,18 +31,23 @@ class Schedule : AppCompatActivity() {
         recyclerView.adapter = lineAdapter
 
         EventChangeListener()
+
+
         val DeExtra=intent.getStringExtra("De")
         val ParaExtra=intent.getStringExtra("Para")
         Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
 
 
     }
+    val autocarroRef = db.collection("autocarros")
+
+    val query = autocarroRef.whereEqualTo("autocarro_id", "DeExtra")
 
 
     private fun EventChangeListener() {
 
        db = FirebaseFirestore.getInstance()
-        db.collection("horarios").document("ODhJfrznigoeyfQQA0Es").collection("paragem").addSnapshotListener(object : EventListener<QuerySnapshot>{
+        db.collection("autocarros").addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
@@ -60,10 +65,12 @@ class Schedule : AppCompatActivity() {
                     }
                 }
 
+
                 lineAdapter.notifyDataSetChanged()
             }
         })
     }
+
 
 
     }

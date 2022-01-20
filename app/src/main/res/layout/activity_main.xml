@@ -15,6 +15,25 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/LinearUser"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/emailWelcome"
+          android:layout_width="wrap_content"
+          android:layout_marginLeft="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Olá, faça login!" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/LinearEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

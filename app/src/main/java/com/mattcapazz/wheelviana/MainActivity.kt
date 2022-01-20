@@ -6,6 +6,7 @@ import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.*
@@ -13,12 +14,16 @@ import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import java.util.*
 
 
 class MainActivity : AppCompatActivity() {
   @SuppressLint("ClickableViewAccessibility")
   lateinit var toggle: ActionBarDrawerToggle
+  private lateinit var auth: FirebaseAuth
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
@@ -26,9 +31,26 @@ class MainActivity : AppCompatActivity() {
 
     loadData()
 
+    val TAG = "Login"
+
+    auth = Firebase.auth
+
+
+
+    val currentUser = auth.currentUser
+
+
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
+
+    if (currentUser == null) {
+
+      val navMenu: Menu = nav.menu
+      navMenu.findItem(R.id.logout).isVisible = false}
+
+
+
 
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
@@ -58,6 +80,19 @@ class MainActivity : AppCompatActivity() {
         R.id.login -> {
           val loginAct = Intent(this, Register::class.java).apply {  }
           startActivity(loginAct)
+        }
+        R.id.logout -> {
+          if (currentUser != null) {
+
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = true
+            FirebaseAuth.getInstance().signOut();
+          } else {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = false
+
+          }
+
         }
 
       }

@@ -3,8 +3,10 @@ package com.mattcapazz.wheelviana
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
@@ -83,7 +85,8 @@ class Login : AppCompatActivity() {
     // Check if user is signed in (non-null) and update UI accordingly.
     val currentUser = auth.currentUser
     if (currentUser != null) {
-      Log.d(TAG, "arroz")
+
+      Log.d(TAG, "arroz logado" + currentUser.email)
     }
   }
 
@@ -102,6 +105,11 @@ class Login : AppCompatActivity() {
           Log.d("TAG", "signInWithEmail:success")
           val user = auth.currentUser
           //updateUI(user)
+          val intent = Intent(this, MainActivity::class.java)
+          startActivity(intent)
+
+
+
         } else {
           // If sign in fails, display a message to the user.
           Log.w(TAG, "signInWithEmail:failure", task.exception)

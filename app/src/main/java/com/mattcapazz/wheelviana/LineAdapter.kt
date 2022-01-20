@@ -6,8 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
+
 class LineAdapter(private val dataSet: ArrayList<Place>) :
     RecyclerView.Adapter<LineAdapter.ViewHolder>() {
+
 
 
 
@@ -28,6 +30,8 @@ class LineAdapter(private val dataSet: ArrayList<Place>) :
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.line, viewGroup, false)
         return ViewHolder(view)
+
+
     }
 
     // Replace the contents of a view (invoked by the layout manager)
@@ -36,7 +40,8 @@ class LineAdapter(private val dataSet: ArrayList<Place>) :
         contents of the view with that element */
         viewHolder.vhAutocarro.text =  dataSet[position].autocarro_id
         viewHolder.vhParagem.text = dataSet[position].paragem
-        viewHolder.vhHora.text = dataSet[position].hora
+        viewHolder.vhHora.text = dataSet[position].horas
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)
