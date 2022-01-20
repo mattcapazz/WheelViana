@@ -104,8 +104,8 @@ class MainActivity : AppCompatActivity() {
   }
 
   private fun saveData() {
-    val textoDe = "De:" + "  " + findViewById<EditText>(R.id.editTde).text.toString()
-    val textoPara = "Para:" + "  " + findViewById<EditText>(R.id.editTpara).text.toString()
+    val textoDe = findViewById<EditText>(R.id.editTde).text.toString()
+    val textoPara = findViewById<EditText>(R.id.editTpara).text.toString()
 
     val deTV = findViewById<TextView>(R.id.deTv)
     deTV.text = textoDe

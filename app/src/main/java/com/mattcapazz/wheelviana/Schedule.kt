@@ -36,6 +36,7 @@ class Schedule : AppCompatActivity() {
     val DeExtra = intent.getStringExtra("De")
     val ParaExtra = intent.getStringExtra("Para")
     Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
+
     db = FirebaseFirestore.getInstance()
     db.collection("horarios").addSnapshotListener(object : EventListener<QuerySnapshot> {
       override fun onEvent(
