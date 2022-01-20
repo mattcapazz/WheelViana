@@ -19,7 +19,6 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
-
 class MainActivity : AppCompatActivity() {
   @SuppressLint("ClickableViewAccessibility")
   lateinit var toggle: ActionBarDrawerToggle
@@ -30,33 +29,23 @@ class MainActivity : AppCompatActivity() {
     setContentView(R.layout.activity_main)
 
     loadData()
-
     val tag = "Login"
-
     auth = Firebase.auth
-
-
 
     val currentUser = auth.currentUser
     if (currentUser != null) {
-
       val emailTV = findViewById<TextView>(R.id.emailWelcome) as TextView
       emailTV.text = "Bem vindo, " + currentUser.email
       Log.d(tag, "arroz logado da main " + currentUser.email)
     }
 
-
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
 
     if (currentUser == null) {
-
       val navMenu: Menu = nav.menu
-      navMenu.findItem(R.id.logout).isVisible = false}
-
-
-
-
+      navMenu.findItem(R.id.logout).isVisible = false
+    }
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
@@ -71,66 +60,54 @@ class MainActivity : AppCompatActivity() {
           }
           startActivity(gmapAct)
         }
-
         R.id.schedule -> {
-          val schedule = Intent(this, Schedule::class.java).apply {  }
+          val schedule = Intent(this, Schedule::class.java).apply { }
           startActivity(schedule)
         }
-
         R.id.issues -> {
-          val loginAct = Intent(this, ActivityReport::class.java).apply {  }
+          val loginAct = Intent(this, ActivityReport::class.java).apply { }
           startActivity(loginAct)
         }
-
         R.id.login -> {
-          val loginAct = Intent(this, Register::class.java).apply {  }
+          val loginAct = Intent(this, Register::class.java).apply { }
           startActivity(loginAct)
         }
         R.id.logout -> {
           if (currentUser != null) {
-
             val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = true
-            FirebaseAuth.getInstance().signOut();
+            FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
           } else {
             val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = false
-
           }
-
         }
-
       }
       true
     }
-
-
   }
-
-
 
   fun saveData() {
     val textoDe = "De:" + "  " + findViewById<EditText>(R.id.editTde).text.toString()
-
     val textoPara = "Para:" + "  " + findViewById<EditText>(R.id.editTpara).text.toString()
 
+    val deTV = findViewById<TextView>(R.id.deTv)
+    deTV.text = textoDe
 
-    val deTV = findViewById<TextView>(R.id.deTv) as TextView
-    deTV.setText(textoDe)
-    val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
-    dePARA.setText(textoPara)
+    val dePARA = findViewById<TextView>(R.id.paraTv)
+    dePARA.text = textoPara
 
     val sharedPref = getSharedPreferences("usualRoute", Context.MODE_PRIVATE)
     val editor = sharedPref.edit()
-    editor.apply{
+    editor.apply {
       putString("STRING_KEY", textoDe)
       putString("STRING_KEY2", textoPara)
       //putBoolean("BOOLEAN_KEY", findViewById<Switch>(R.id.switch1).isChecked)
     }.apply()
 
-    Toast.makeText(this,"Data Saved", Toast.LENGTH_SHORT).show()
+    Toast.makeText(this, "Data Saved", Toast.LENGTH_SHORT).show()
   }
 
   fun loadData() {
@@ -139,14 +116,11 @@ class MainActivity : AppCompatActivity() {
     val savedString2 = sharedPref.getString("STRING_KEY2", null)
     val savedSwitch = sharedPref.getBoolean("BOOLEAN_KEY", false)
 
-
     val deTV = findViewById<TextView>(R.id.deTv) as TextView
-    deTV.setText(savedString)
+    deTV.text = savedString
     val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
-    dePARA.setText(savedString2)
+    dePARA.text = savedString2
     //findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
-
-
   }
 
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
@@ -166,15 +140,16 @@ class MainActivity : AppCompatActivity() {
 
   fun calendar(view: android.view.View) {
     val dateTv = findViewById<View>(R.id.dateTv) as TextView
-    val c= Calendar.getInstance()
-    val year= c.get(Calendar.YEAR)
+    val c = Calendar.getInstance()
+    val year = c.get(Calendar.YEAR)
     val month = c.get(Calendar.MONTH)
     val day = c.get(Calendar.DAY_OF_MONTH)
-    var dpd = DatePickerDialog(this,DatePickerDialog.OnDateSetListener { view, mYear,mMonth , mDay ->
-      val mmMonth = mMonth+1
-      val date = "$mDay/$mmMonth/$mYear"
-      dateTv.setText(date)
-    },year,month,day)
+    var dpd =
+      DatePickerDialog(this, DatePickerDialog.OnDateSetListener { view, mYear, mMonth, mDay ->
+        val mmMonth = mMonth + 1
+        val date = "$mDay/$mmMonth/$mYear"
+        dateTv.text = date
+      }, year, month, day)
     dpd.show()
   }
 
@@ -185,13 +160,13 @@ class MainActivity : AppCompatActivity() {
   fun SearchSch(view: android.view.View) {
     val edtt = findViewById<EditText>(R.id.editTde).text.toString()
 
-    if(edtt.isNullOrBlank() == false){
+    if (!edtt.isNullOrBlank()) {
       val textoDe = findViewById<EditText>(R.id.editTde).text.toString()
       val textoPara = findViewById<EditText>(R.id.editTpara).text.toString()
 
-      val intent = Intent(this@MainActivity,Schedule::class.java)
-      intent.putExtra("De",textoDe)
-      intent.putExtra("Para",textoPara)
+      val intent = Intent(this@MainActivity, Schedule::class.java)
+      intent.putExtra("De", textoDe)
+      intent.putExtra("Para", textoPara)
       startActivity(intent)
       Log.e("Extra2", "estou no edittext")
 
@@ -199,13 +174,11 @@ class MainActivity : AppCompatActivity() {
       val deTV = findViewById<TextView>(R.id.deTv).text.toString()
       val dePARA = findViewById<TextView>(R.id.paraTv).text.toString()
 
-      val intent = Intent(this@MainActivity,Schedule::class.java)
-      intent.putExtra("De",deTV)
-      intent.putExtra("Para",dePARA)
+      val intent = Intent(this@MainActivity, Schedule::class.java)
+      intent.putExtra("De", deTV)
+      intent.putExtra("Para", dePARA)
       startActivity(intent)
-      Log.e("Extra2", "estou no textview")
-
-
+      Log.e("Extra2", "Estou no textview")
     }
   }
 }

@@ -9,20 +9,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 
-
-
 class ActivityReport : AppCompatActivity() {
-
   lateinit var toggle: ActionBarDrawerToggle
 
   override fun onCreate(savedInstanceState: Bundle?) {
     super.onCreate(savedInstanceState)
     setContentView(R.layout.activity_report)
 
-
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
-
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
@@ -30,14 +25,12 @@ class ActivityReport : AppCompatActivity() {
 
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
-
     nav.setNavigationItemSelectedListener {
       when (it.itemId) {
         R.id.gMap -> {
           val gmapAct = Intent(this, Maps::class.java).apply {
           }
           startActivity(gmapAct)
-
         }
 
         R.id.schedule -> Toast.makeText(
@@ -47,7 +40,7 @@ class ActivityReport : AppCompatActivity() {
         ).show()
 
         R.id.issues -> {
-          val loginAct = Intent(this, ActivityReport::class.java).apply {  }
+          val loginAct = Intent(this, ActivityReport::class.java).apply { }
           startActivity(loginAct)
         }
 
@@ -62,8 +55,8 @@ class ActivityReport : AppCompatActivity() {
     }
 
 
-
   }
+
   override fun onOptionsItemSelected(item: MenuItem): Boolean {
     if (toggle.onOptionsItemSelected(item)) {
       return true
