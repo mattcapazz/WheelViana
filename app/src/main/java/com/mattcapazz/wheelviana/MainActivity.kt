@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     loadData()
 
-    val TAG = "Login"
+    val tag = "Login"
 
     auth = Firebase.auth
 
@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
     if (currentUser != null) {
 
       val emailTV = findViewById<TextView>(R.id.emailWelcome) as TextView
-      emailTV.setText(currentUser.email)
-      Log.d(TAG, "arroz logado da main " + currentUser.email)
+      emailTV.text = "Bem vindo, " + currentUser.email
+      Log.d(tag, "arroz logado da main " + currentUser.email)
     }
 
 
@@ -127,7 +127,7 @@ class MainActivity : AppCompatActivity() {
     editor.apply{
       putString("STRING_KEY", textoDe)
       putString("STRING_KEY2", textoPara)
-      putBoolean("BOOLEAN_KEY", findViewById<Switch>(R.id.switch1).isChecked)
+      //putBoolean("BOOLEAN_KEY", findViewById<Switch>(R.id.switch1).isChecked)
     }.apply()
 
     Toast.makeText(this,"Data Saved", Toast.LENGTH_SHORT).show()
@@ -144,7 +144,7 @@ class MainActivity : AppCompatActivity() {
     deTV.setText(savedString)
     val dePARA = findViewById<TextView>(R.id.paraTv) as TextView
     dePARA.setText(savedString2)
-    findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
+    //findViewById<Switch>(R.id.switch1).isChecked = savedSwitch
 
 
   }

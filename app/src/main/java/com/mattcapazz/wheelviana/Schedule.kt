@@ -34,10 +34,14 @@ class Schedule : AppCompatActivity() {
 
 
 
+        val autocarroRef = db.collection("autocarros")
+
+        val query = autocarroRef.whereEqualTo("autocarro_id", "DeExtra").get()
 
         val DeExtra=intent.getStringExtra("De")
         val ParaExtra=intent.getStringExtra("Para")
         Log.e("Extra", DeExtra.toString() + " " + ParaExtra.toString())
+
 
 
     }
@@ -48,7 +52,7 @@ class Schedule : AppCompatActivity() {
 
 
        db = FirebaseFirestore.getInstance()
-        db.collection("autocarros").whereEqualTo("autocarro_id", "DeExtra").addSnapshotListener(object : EventListener<QuerySnapshot>{
+        db.collection("autocarros").addSnapshotListener(object : EventListener<QuerySnapshot>{
             override fun onEvent(
                 value: QuerySnapshot?,
                 error: FirebaseFirestoreException?
