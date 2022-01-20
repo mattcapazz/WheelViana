@@ -16,6 +16,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 import java.util.*
 
@@ -34,10 +35,38 @@ class MainActivity : AppCompatActivity() {
 
     val currentUser = auth.currentUser
     if (currentUser != null) {
-      val emailTV = findViewById<TextView>(R.id.emailWelcome)
-      emailTV.text = "Bem vindo, " + currentUser.email
+
       Log.d(tag, "arroz logado da main " + currentUser.email)
     }
+
+    val db = Firebase.firestore
+
+    db.collection("users")
+      .get()
+      .addOnSuccessListener { result ->
+        for (document in result) {
+          if (currentUser != null) {
+            if (document.data.get("email") != currentUser!!.email) {
+              Log.d(TAG, "${document.id} => ${document.data.get("email")}")
+            } else {
+
+              Log.d(TAG, "${document.id} => ${document.data.get("email")}")
+
+              if (currentUser != null) {
+                val emailTV = findViewById<TextView>(R.id.emailWelcome)
+                emailTV.text = "Bem vindo, " + document.data.get("name")
+              }
+            }
+          } else {
+            Log.d(TAG, "${document.id} => ${document.data.get("email")}")
+          }
+        }
+      }
+      .addOnFailureListener { exception ->
+        Log.w(TAG, "Error getting documents.", exception)
+      }
+
+
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)

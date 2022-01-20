@@ -4,6 +4,7 @@ import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
@@ -13,6 +14,7 @@ import androidx.drawerlayout.widget.DrawerLayout
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.ktx.firestore
 import com.google.firebase.ktx.Firebase
 
 private lateinit var auth: FirebaseAuth
@@ -26,6 +28,7 @@ class Register : AppCompatActivity() {
     setContentView(R.layout.activity_register)
 
     auth = Firebase.auth
+    val currentUser = auth.currentUser
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
@@ -43,21 +46,39 @@ class Register : AppCompatActivity() {
           }
           startActivity(gmapAct)
         }
-
-        R.id.schedule -> Toast.makeText(
-          applicationContext,
-          "Clicked Item 2",
-          Toast.LENGTH_SHORT
-        ).show()
-
+        R.id.schedule -> {
+          val schedule = Intent(this, Schedule::class.java).apply { }
+          startActivity(schedule)
+        }
         R.id.issues -> {
           val loginAct = Intent(this, ActivityReport::class.java).apply { }
           startActivity(loginAct)
         }
-
         R.id.login -> {
-          val loginAct = Intent(this, Register::class.java).apply { }
-          startActivity(loginAct)
+          if (currentUser != null) {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.login).isVisible = false
+
+          } else {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = true
+            val loginAct = Intent(this, Register::class.java).apply { }
+            startActivity(loginAct)
+          }
+
+
+        }
+        R.id.logout -> {
+          if (currentUser != null) {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = true
+            FirebaseAuth.getInstance().signOut()
+            val intent = Intent(this, MainActivity::class.java)
+            startActivity(intent)
+          } else {
+            val navMenu: Menu = nav.menu
+            navMenu.findItem(R.id.logout).isVisible = false
+          }
         }
       }
       true
@@ -74,6 +95,29 @@ class Register : AppCompatActivity() {
   fun createAccount(view: android.view.View) {
     val email = findViewById<EditText>(R.id.email).text.toString()
     val password = findViewById<EditText>(R.id.password).text.toString()
+
+    val name = findViewById<EditText>(R.id.nome).text.toString()
+    val lastname = findViewById<EditText>(R.id.apelido).text.toString()
+
+    val db = Firebase.firestore
+
+    val currentUser = auth.currentUser
+
+    val user = hashMapOf(
+      "name" to name,
+      "lastname" to lastname,
+      "email" to email
+    )
+
+    db.collection("users")
+      .add(user)
+      .addOnSuccessListener { documentReference ->
+        Log.d(TAG, "DocumentSnapshot added with ID: ${documentReference.id}")
+      }
+      .addOnFailureListener { e ->
+        Log.w(TAG, "Error adding document", e)
+      }
+
 
     auth.createUserWithEmailAndPassword(email, password)
       .addOnCompleteListener(this) { task ->
@@ -94,7 +138,11 @@ class Register : AppCompatActivity() {
           //updateUI(null)
         }
       }
+
+
   }
+
+
 
   fun loginAccount(view: android.view.View) {
     startActivity(Intent(this, Login::class.java))
