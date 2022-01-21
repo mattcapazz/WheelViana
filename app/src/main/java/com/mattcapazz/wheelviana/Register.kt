@@ -32,6 +32,10 @@ class Register : AppCompatActivity() {
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
+    val navMenu: Menu = nav.menu
+    navMenu.findItem(R.id.issues).isVisible = false
+    navMenu.findItem(R.id.login).isVisible = false
+    navMenu.findItem(R.id.logout).isVisible = false
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
@@ -54,29 +58,24 @@ class Register : AppCompatActivity() {
           val loginAct = Intent(this, ActivityReport::class.java).apply { }
           startActivity(loginAct)
         }
+        R.id.dashboard -> {
+          startActivity(Intent(this, MainActivity::class.java))
+        }
         R.id.login -> {
           if (currentUser != null) {
-            val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.login).isVisible = false
-
           } else {
-            val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = true
-            val loginAct = Intent(this, Register::class.java).apply { }
-            startActivity(loginAct)
+            startActivity(Intent(this, Register::class.java))
           }
-
-
         }
         R.id.logout -> {
           if (currentUser != null) {
-            val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = true
             FirebaseAuth.getInstance().signOut()
             val intent = Intent(this, MainActivity::class.java)
             startActivity(intent)
           } else {
-            val navMenu: Menu = nav.menu
             navMenu.findItem(R.id.logout).isVisible = false
           }
         }
@@ -138,11 +137,7 @@ class Register : AppCompatActivity() {
           //updateUI(null)
         }
       }
-
-
   }
-
-
 
   fun loginAccount(view: android.view.View) {
     startActivity(Intent(this, Login::class.java))

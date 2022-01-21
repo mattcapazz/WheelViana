@@ -31,6 +31,7 @@ class MainActivity : AppCompatActivity() {
 
     loadData()
     val tag = "Login"
+
     auth = Firebase.auth
 
     val currentUser = auth.currentUser
@@ -70,14 +71,15 @@ class MainActivity : AppCompatActivity() {
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
+    val navMenu: Menu = nav.menu
+    navMenu.findItem(R.id.dashboard).isVisible = false
 
     if (currentUser == null) {
-      val navMenu: Menu = nav.menu
       navMenu.findItem(R.id.logout).isVisible = false
+      navMenu.findItem(R.id.issues).isVisible = false
     }
 
     if (currentUser != null) {
-      val navMenu: Menu = nav.menu
       navMenu.findItem(R.id.login).isVisible = false
     }
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)

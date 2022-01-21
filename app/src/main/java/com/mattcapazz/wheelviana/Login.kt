@@ -3,6 +3,7 @@ package com.mattcapazz.wheelviana
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.Menu
 import android.view.MenuItem
 import android.widget.EditText
 import android.widget.Toast
@@ -28,6 +29,10 @@ class Login : AppCompatActivity() {
 
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
+    val navMenu: Menu = nav.menu
+    navMenu.findItem(R.id.issues).isVisible = false
+    navMenu.findItem(R.id.login).isVisible = false
+    navMenu.findItem(R.id.logout).isVisible = false
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
@@ -42,12 +47,6 @@ class Login : AppCompatActivity() {
           startActivity(gmapAct)
         }
 
-        R.id.schedule -> Toast.makeText(
-          applicationContext,
-          "Clicked Item 2",
-          Toast.LENGTH_SHORT
-        ).show()
-
         R.id.issues -> {
           val loginAct = Intent(this, ActivityReport::class.java).apply { }
           startActivity(loginAct)
@@ -56,6 +55,10 @@ class Login : AppCompatActivity() {
         R.id.login -> {
           val loginAct = Intent(this, Register::class.java).apply { }
           startActivity(loginAct)
+        }
+
+        R.id.dashboard -> {
+          startActivity(Intent(this, MainActivity::class.java))
         }
       }
       true

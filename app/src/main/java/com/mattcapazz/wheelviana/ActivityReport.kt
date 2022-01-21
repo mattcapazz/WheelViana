@@ -21,6 +21,7 @@ class ActivityReport : AppCompatActivity() {
     val nav = findViewById<NavigationView>(R.id.navView)
     val navMenu: Menu = nav.menu
     navMenu.findItem(R.id.issues).isVisible = false
+    navMenu.findItem(R.id.login).isVisible = false
 
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
@@ -35,15 +36,8 @@ class ActivityReport : AppCompatActivity() {
           }
           startActivity(gmapAct)
         }
-
-        R.id.issues -> {
-          val loginAct = Intent(this, ActivityReport::class.java).apply { }
-          startActivity(loginAct)
-        }
-
-        R.id.login -> {
-          val loginAct = Intent(this, Register::class.java).apply { }
-          startActivity(loginAct)
+        R.id.dashboard -> {
+          startActivity(Intent(this, MainActivity::class.java))
         }
       }
       true

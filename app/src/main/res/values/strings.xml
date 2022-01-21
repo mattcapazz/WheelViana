@@ -24,5 +24,6 @@
     <string name="saveroute">Save Route</string>
     <string name="save">Save</string>
     <string name="signInWithEmailFailure">Email or Password incorrect!</string>
+    <string name="dashboard">Back to Dashboard</string>
 
 </resources>
