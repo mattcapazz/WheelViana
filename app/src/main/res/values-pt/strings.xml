@@ -7,16 +7,16 @@
     <string name="searchSchedules">Pesquisar Horários</string>
     <string name="name">Nome</string>
     <string name="lastName">Apelido</string>
-    <string name="register">Register</string>
+    <string name="register">Registro</string>
     <string name="signIn">Entrar</string>
     <string name="linkPass">Associar Passe</string>
-    <string name="language">Engish</string>
+    <string name="language">English</string>
     <string name="darkMode">Modo Escuro</string>
     <string name="frequent">Percursos Frequentes</string>
     <string name="reportProb">Reportar Problema</string>
     <string name="report">Reportar</string>
     <string name="logOut">SAIR</string>
-    <string name="open">Abrir></string>
+    <string name="open">Abrir</string>
     <string name="close">Fechar</string>
     <string-array name="report">
         <item>Transporte atrasado</item>
@@ -26,5 +26,7 @@
     <string name="saveroute">Guardar Rota</string>
   <string name="signInWithEmailFailure">Email ou Password incorreta!</string>
   <string name="dashboard">Voltar à Dashboard</string>
+    <string name="date">Data</string>
+    <string name="welcome">Bem vindo</string>
 
 </resources>

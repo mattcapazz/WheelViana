@@ -49,7 +49,7 @@ class Schedule : AppCompatActivity() {
         }
         for (dc: DocumentChange in value?.documentChanges!!) {
           if (dc.type == DocumentChange.Type.ADDED) {
-            //Log.d("MARIO", dc.document.data["horas"].toString())
+
             if(dc.document.data["paragem"].toString().equals(DeExtra) || dc.document.data["paragem"].toString().equals(ParaExtra))
             myList.add(Place(dc.document.data["autocarro_id"].toString(), dc.document.data["paragem"].toString(),
               dc.document.data["horas"] as List<String>

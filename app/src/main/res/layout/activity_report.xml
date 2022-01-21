@@ -14,52 +14,39 @@
     tools:context=".ActivityReport">
 
     <EditText
-      android:id="@+id/editText"
-      android:layout_width="261dp"
-      android:layout_height="55dp"
-      android:layout_marginTop="160dp"
-      android:background="@drawable/rounded_edittext"
-      android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
-      android:drawableRight="@drawable/location"
-      android:ems="10"
-      android:hint="Localização:"
-      android:inputType="textPersonName"
-      android:minHeight="48dp"
-      android:padding="10dp"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toTopOf="parent"
-      tools:ignore="SpeakableTextPresentCheck" />
+        android:id="@+id/etIncidencia"
+        android:layout_width="251dp"
+        android:layout_height="197dp"
+        android:layout_marginTop="160dp"
+        android:background="@drawable/rounded_edittext"
+        android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
 
-    <Spinner
-      android:id="@+id/spinner"
-      android:layout_width="256dp"
-      android:layout_height="48dp"
-      android:layout_marginTop="68dp"
-      android:entries="@array/report"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.496"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/editText" />
+        android:ems="10"
+        android:hint="Incidencia"
+        android:inputType="textPersonName"
+        android:minHeight="48dp"
+        android:padding="10dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:ignore="SpeakableTextPresentCheck" />
 
     <androidx.constraintlayout.widget.Group
-      android:id="@+id/group"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      app:constraint_referenced_ids="spinner" />
+        android:id="@+id/group"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content" />
 
     <Button
-      android:id="@+id/button4"
-      android:layout_width="295dp"
-      android:layout_height="60dp"
-      android:layout_marginTop="200dp"
-      android:text="@string/report"
-      app:layout_constraintBottom_toBottomOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintHorizontal_bias="0.5"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/spinner" />
+        android:id="@+id/button4"
+        android:layout_width="295dp"
+        android:layout_height="60dp"
+        android:text="@string/report"
+        android:onClick="btnInc"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent" />
   </androidx.constraintlayout.widget.ConstraintLayout>
 
   <com.google.android.material.navigation.NavigationView

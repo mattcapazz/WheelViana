@@ -14,7 +14,7 @@
     <string name="reportProb">Report a Problem</string>
     <string name="report">Report</string>
     <string name="logOut">LOG OUT</string>
-    <string name="open">Open></string>
+    <string name="open">Open</string>
     <string name="close">Close</string>
     <string-array name="report">
         <item>Late Bus</item>
@@ -25,5 +25,7 @@
     <string name="save">Save</string>
     <string name="signInWithEmailFailure">Email or Password incorrect!</string>
     <string name="dashboard">Back to Dashboard</string>
+    <string name="date">Date</string>
+    <string name="welcome">Welcome</string>
 
 </resources>

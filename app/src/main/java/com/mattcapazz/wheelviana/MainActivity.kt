@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
 
               if (currentUser != null) {
                 val emailTV = findViewById<TextView>(R.id.emailWelcome)
-                emailTV.text = "Bem vindo, " + document.data.get("name")
+                emailTV.text = document.data.get("name").toString()
               }
             }
           } else {
