@@ -1,112 +1,123 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <androidx.drawerlayout.widget.DrawerLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/drawerLayout"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
+  xmlns:app="http://schemas.android.com/apk/res-auto"
+  xmlns:tools="http://schemas.android.com/tools"
+  android:id="@+id/drawerLayout"
+  android:layout_width="match_parent"
+  android:layout_height="match_parent"
+  tools:context=".Register">
+
+  <androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
     tools:context=".Register">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        tools:context=".Register">
+
+    <EditText
+      android:id="@+id/nome"
+      android:layout_width="311dp"
+      android:layout_height="63dp"
+      android:layout_marginBottom="25dp"
+      android:layout_weight="0.15"
+      android:ems="10"
+      android:hint="@string/name"
+      android:inputType="textPersonName"
+      app:layout_constraintBottom_toTopOf="@+id/apelido"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+      android:id="@+id/loginAccount"
+      android:layout_width="150dp"
+      android:layout_height="50dp"
+      android:layout_weight="0.15"
+      android:onClick="loginAccount"
+      android:text="@string/signIn"
+      android:textColor="#3E2723"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.498"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/createAccount"
+      app:layout_constraintVertical_bias="0.079" />
+
+    <EditText
+      android:id="@+id/email"
+      android:layout_width="311dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="25dp"
+      android:layout_weight="0.15"
+      android:ems="10"
+      android:hint="Email"
+      android:inputType="textEmailAddress"
+      android:minHeight="48dp"
+      app:layout_constraintBottom_toTopOf="@+id/password"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+
+    <Button
+      android:id="@+id/createAccount"
+      android:layout_width="296dp"
+      android:layout_height="70dp"
+      android:layout_marginBottom="124dp"
+      android:layout_weight="0.15"
+      android:onClick="createAccount"
+      android:text="@string/register"
+      android:textColor="#3E2723"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintHorizontal_bias="0.495"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toBottomOf="@+id/password"
+      app:layout_constraintVertical_bias="0.75" />
+
+    <EditText
+      android:id="@+id/password"
+      android:layout_width="311dp"
+      android:layout_height="wrap_content"
+      android:layout_weight="0.15"
+      android:ems="10"
+      android:hint="Password"
+      android:inputType="textPassword"
+      android:minHeight="48dp"
+      app:layout_constraintBottom_toBottomOf="parent"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+      android:id="@+id/apelido"
+      android:layout_width="311dp"
+      android:layout_height="wrap_content"
+      android:layout_marginBottom="25dp"
+      android:layout_weight="0.15"
+      android:ems="10"
+      android:hint="@string/lastName"
+      android:inputType="textPersonName"
+      android:minHeight="48dp"
+      app:layout_constraintBottom_toTopOf="@+id/email"
+      app:layout_constraintEnd_toEndOf="parent"
+      app:layout_constraintStart_toStartOf="parent"
+      app:layout_constraintTop_toTopOf="parent"
+      app:layout_constraintVertical_bias="1.0" />
+  </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-        <EditText
-            android:id="@+id/nome"
-            android:layout_width="311dp"
-            android:layout_height="63dp"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="@string/name"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/apelido"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/apelido"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="@string/lastName"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/password"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="Password"
-            android:inputType="textPassword"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="386dp" />
-
-        <Button
-            android:id="@+id/createAccount"
-            android:layout_width="296dp"
-            android:layout_height="70dp"
-            android:layout_weight="0.15"
-            android:onClick="createAccount"
-            android:text="@string/register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="569dp" />
-
-        <Button
-            android:id="@+id/loginAccount"
-            android:layout_width="150dp"
-            android:layout_height="50dp"
-            android:layout_weight="0.15"
-            android:onClick="loginAccount"
-            android:text="@string/signIn"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createAccount" />
+  <com.google.android.material.navigation.NavigationView
+    android:id="@+id/navView"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:layout_gravity="start"
+    android:fitsSystemWindows="true"
+    app:headerLayout="@layout/nav_header"
+    app:menu="@menu/nav_drawer_menu">
 
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-<com.google.android.material.navigation.NavigationView
-android:id="@+id/navView"
-android:layout_width="wrap_content"
-android:layout_height="match_parent"
-android:layout_gravity="start"
-android:fitsSystemWindows="true"
-app:headerLayout="@layout/nav_header"
-app:menu="@menu/nav_drawer_menu">
-
-
-</com.google.android.material.navigation.NavigationView>
+  </com.google.android.material.navigation.NavigationView>
 
 </androidx.drawerlayout.widget.DrawerLayout>

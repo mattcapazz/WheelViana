@@ -29,13 +29,10 @@ class Login : AppCompatActivity() {
     val drawer = findViewById<DrawerLayout>(R.id.drawerLayout)
     val nav = findViewById<NavigationView>(R.id.navView)
 
-
     toggle = ActionBarDrawerToggle(this, drawer, R.string.open, R.string.close)
     drawer.addDrawerListener(toggle)
     toggle.syncState()
-
     supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
 
     nav.setNavigationItemSelectedListener {
       when (it.itemId) {
@@ -88,15 +85,13 @@ class Login : AppCompatActivity() {
     auth.signInWithEmailAndPassword(email, password)
       .addOnCompleteListener(this) { task ->
         if (task.isSuccessful) {
-          // Sign in success, update UI with the signed-in user's information
           Log.d("TAG", "signInWithEmail:success")
           val intent = Intent(this, MainActivity::class.java)
           startActivity(intent)
         } else {
-          // If sign in fails, display a message to the user.
-          Log.w(TAG, "signInWithEmail:failure", task.exception)
+          // Failed Login
           Toast.makeText(
-            baseContext, "Authentication failed.",
+            baseContext, R.string.signInWithEmailFailure,
             Toast.LENGTH_SHORT
           ).show()
         }

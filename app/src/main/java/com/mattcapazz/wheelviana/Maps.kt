@@ -4,17 +4,10 @@ import android.Manifest
 import android.content.pm.PackageManager
 import android.location.Location
 import android.os.Bundle
-import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
-
-// Manual Merge Attempt
-import com.google.android.gms.location.LocationRequest 
-import com.google.android.gms.maps.CameraUpdateFactory
-// -x-
-
 import com.google.android.gms.maps.GoogleMap
 import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
@@ -22,20 +15,12 @@ import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
 import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
-
-// Manual Merge Attempt
-import com.mattcapazz.wheelviana.api.EndPoints
-import com.mattcapazz.wheelviana.api.ServiceBuilder
-import com.mattcapazz.wheelviana.api.Marker
-// -x-
-  
 import com.mattcapazz.wheelviana.api.EndPoints2
 import com.mattcapazz.wheelviana.api.ServiceBuilder2
 import com.mattcapazz.wheelviana.api.User2
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-
 import java.util.*
 
 // Source: https://cursokotlin.com/capitulo-28-google-maps-en-android-con-kotlin/

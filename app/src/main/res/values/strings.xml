@@ -23,5 +23,6 @@
     <string name="returnTrip">Return Trip</string>
     <string name="saveroute">Save Route</string>
     <string name="save">Save</string>
+    <string name="signInWithEmailFailure">Email or Password incorrect!</string>
 
 </resources>
