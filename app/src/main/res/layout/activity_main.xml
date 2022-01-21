@@ -15,6 +15,24 @@
     tools:context=".MainActivity">
 
     <LinearLayout
+        android:id="@+id/LinearUser"
+        android:gravity="center"
+        android:layout_marginTop="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+      <TextView
+          android:id="@+id/emailWelcome"
+          android:layout_width="wrap_content"
+          android:layout_marginLeft="60dp"
+          android:layout_height="match_parent"
+          android:layout_weight="1"
+          android:text="Olá, faça login!" />
+
+    </LinearLayout>
+
+    <LinearLayout
         android:id="@+id/LinearEdit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -25,7 +43,7 @@
           android:id="@+id/editTde"
           android:layout_width="214dp"
           android:layout_height="48dp"
-          android:layout_marginTop="40dp"
+          android:layout_marginTop="50dp"
           android:background="@drawable/rounded_edittext"
           android:backgroundTint="@color/common_google_signin_btn_text_dark_disabled"
           android:drawableRight="@drawable/location"
@@ -81,7 +99,7 @@
     <TextView
         android:id="@+id/paraTv"
         android:layout_weight="1"
-        android:layout_marginRight="70dp"
+        android:layout_marginRight="10dp"
         android:layout_width="wrap_content"
         android:layout_height="match_parent"
         android:text="Para:"/>
@@ -101,12 +119,12 @@
           android:layout_height="match_parent"
           android:layout_weight="1"
 
-          android:text="Data e hora"/>
+          android:text="Date"/>
 
       <TextView
           android:id="@+id/textView"
           android:layout_width="wrap_content"
-          android:layout_marginLeft="60dp"
+          android:layout_marginLeft="100dp"
           android:layout_height="match_parent"
           android:layout_weight="1"
           android:text="@string/saveroute"
@@ -122,7 +140,7 @@
 
       <Button
           android:id="@+id/button3"
-          android:layout_width="41dp"
+          android:layout_width="35dp"
           android:layout_height="51dp"
           android:layout_marginTop="10dp"
          android:layout_marginLeft="65dp"
@@ -141,12 +159,7 @@
           android:text="Date"
           />
 
-      <Switch
-          android:id="@+id/switch1"
-          android:layout_width="wrap_content"
-          android:layout_height="51dp"
-          android:layout_marginTop="10dp"
-          android:layout_weight="2" />
+
 
 
       <Button
@@ -157,7 +170,7 @@
           android:layout_marginRight="50dp"
           android:layout_marginTop="10dp"
           android:layout_weight="2"
-          android:text="G" />
+          android:text="Guardar" />
 
 
 
@@ -167,28 +180,30 @@
 
 
     <Button
-      android:id="@+id/SearchSched"
-      android:layout_width="341dp"
-      android:layout_height="48dp"
-      android:layout_centerInParent="true"
-      android:layout_marginTop="50dp"
-      android:layout_below="@id/LinearCalDateSwitch"
-      android:layout_marginBottom="4dp"
-      android:background="@drawable/rounded_edittext"
-      android:text="@string/searchSchedules"/>
+        android:id="@+id/SearchSched"
+        android:layout_width="341dp"
+        android:layout_height="48dp"
+        android:layout_below="@id/LinearCalDateSwitch"
+        android:layout_centerInParent="true"
+        android:layout_marginTop="50dp"
+        android:onClick="searchSch"
+        android:layout_marginBottom="4dp"
+        android:background="@drawable/rounded_edittext"
+        android:text="@string/searchSchedules" />
+
 
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="match_parent"
-        android:layout_height="409dp"
+        android:layout_height="match_parent"
         android:layout_below="@id/SearchSched"
-        android:layout_marginBottom="4dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        tools:srcCompat="@drawable/bus" />
+        android:layout_marginBottom="6dp"
+        android:layout_marginTop="6dp"
+        android:src="@drawable/bus" />
 
 
   </RelativeLayout>
+
 
 
   <com.google.android.material.navigation.NavigationView
