@@ -16,82 +16,82 @@
 
         <EditText
             android:id="@+id/nome"
-            android:layout_width="311dp"
+            android:layout_width="400dp"
             android:layout_height="63dp"
-            android:layout_marginBottom="25dp"
+            android:layout_marginBottom="10dp"
             android:layout_weight="0.15"
             android:ems="10"
             android:hint="@string/name"
             android:inputType="textPersonName"
             app:layout_constraintBottom_toTopOf="@+id/apelido"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/apelido"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="@string/lastName"
-            android:inputType="textPersonName"
-            app:layout_constraintBottom_toTopOf="@+id/email"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent" />
-
-        <EditText
-            android:id="@+id/email"
-            android:layout_width="311dp"
-            android:layout_height="wrap_content"
-            android:layout_marginBottom="25dp"
-            android:layout_weight="0.15"
-            android:ems="10"
-            android:hint="Email"
-            android:inputType="textEmailAddress"
-            app:layout_constraintBottom_toTopOf="@+id/password"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.459"
             app:layout_constraintStart_toStartOf="parent" />
 
         <EditText
             android:id="@+id/password"
-            android:layout_width="311dp"
+            android:layout_width="400dp"
             android:layout_height="wrap_content"
             android:layout_weight="0.15"
             android:ems="10"
             android:hint="Password"
             android:inputType="textPassword"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintHorizontal_bias="0.459"
             app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="386dp" />
+            tools:layout_editor_absoluteY="247dp" />
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:layout_weight="0.15"
+            android:ems="10"
+            android:hint="Email"
+            android:inputType="textEmailAddress"
+            app:layout_constraintBottom_toTopOf="@+id/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <EditText
+            android:id="@+id/apelido"
+            android:layout_width="400dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:layout_weight="0.15"
+            android:ems="10"
+            android:hint="@string/lastName"
+            android:inputType="textPersonName"
+            app:layout_constraintBottom_toTopOf="@+id/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.459"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/createAccount"
-            android:layout_width="296dp"
-            android:layout_height="70dp"
+            android:layout_width="250dp"
+            android:layout_height="50dp"
+            android:layout_marginStart="40dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="0.15"
             android:onClick="createAccount"
             android:text="@string/register"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            tools:layout_editor_absoluteY="569dp" />
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
         <Button
             android:id="@+id/loginAccount"
-            android:layout_width="150dp"
+            android:layout_width="250dp"
             android:layout_height="50dp"
+            android:layout_marginEnd="40dp"
+            android:layout_marginBottom="15dp"
             android:layout_weight="0.15"
             android:onClick="loginAccount"
             android:text="@string/signIn"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.504"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/createAccount" />
+            app:layout_constraintEnd_toEndOf="parent" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
